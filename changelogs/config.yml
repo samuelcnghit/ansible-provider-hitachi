@@ -26,6 +26,6 @@ sections:
     - Bugfixes
   - - known_issues
     - Known Issues
-title: HitachiVantara.BlockStorages
+title: HitachiVantara.AnsibleProviderForHitachiStorage
 trivial_section_name: trivial
 use_fqcn: true
