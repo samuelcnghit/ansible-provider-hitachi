@@ -1,0 +1,36 @@
+management_address: 10.11.12.13 
+management_port: 443
+pool_id: 0
+block_capacity_mb: 1 # Assign it according to the required capacity
+ldev_id: 1 # Assign it according to a specified ldev id
+port_settings:
+  - {port_id: 'CL1-C', host_group_number: 1, host_group_name: 'SampleHostGroupName', iscsi_name: 'iqn.1994-04.jp.co.hitachi:rsd.r90.i.08757e.1c' , chap_user_name: 'ChapUserName', way_of_chap_user: 'INI', chap_password: 'ChapUserPassword', iscsi_nick_name: "SampleIscsiNickName", host_mode: "XXXX"}
+
+chap_settings:
+  - {port_id: 'CL1-C', host_group_number: 1, chap_user_name: 'SampleChapUserName', way_of_chap_user: 'INI', chap_password: 'SampleChapUserPassword'}
+
+  
+SI: {
+
+  pvol_id: 1,
+  svol_id: 1,
+  copy_group_name: 'SampleName',
+  copy_pace: 1,
+  consistency_group_id: 3,
+  copy_pair_name: 'SampleValue'
+}
+
+TI: {
+
+  snapshot_group_name: 'SampleGroupName',
+  snapshot_pool_id: 0,
+  is_consistency_group: False,
+  generations: 0,
+  mu_number: 4,
+  ldev_id: 1
+}
+
+# Following variables should be encrypted, but are written in plain text for debugging efficiency
+storage_device_id: 'xxxx'
+storage_user: "SampleStorageUser"
+storage_pass: "SampleStoragePass"

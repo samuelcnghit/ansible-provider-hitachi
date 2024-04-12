@@ -1,0 +1,19 @@
+- name: Attach volume to compute node.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Attach volume
+    attach_volume:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      server_nickname: '{{server_nickname}}' # Compute Node Name
+      volume_name: '{{volume_name}}'
+    register: result_attach_volume
+
+  - name: Print attach volume result
+    debug:
+      msg: '{{result_attach_volume}}'

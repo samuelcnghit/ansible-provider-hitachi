@@ -1,0 +1,19 @@
+- name: Resync ThinImage pair oldest.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Resync the oldest ThinImage pair
+    hitachi_block_resyncTI_oldest:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      snapshot_group_name: '{{TI.snapshot_group_name}}'
+      pvol_ldev_id: '{{TI.ldev_id}}'
+    register: TI_resync_result
+
+  - name: Print resync ThinImage pair result
+    debug:
+      msg: '{{TI_resync_result.outputs}}'

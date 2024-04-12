@@ -1,0 +1,23 @@
+- name: Add CHAP user to compute port on Hitachi Virtual Storage Software Block.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Add a CHAP user to compute port
+    add_chapuser_computeport:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      target_port_name: '{{item.target_port_name}}'
+      target_chap_user_name: '{{item.target_chap_user_name}}'
+    with_items: 
+      '{{chap_settings}}'
+    register: result_add_chap_user_computeport
+
+  - name: Print add chap user result
+    debug:
+      msg: '{{result_add_chap_user_computeport}}'
+
+

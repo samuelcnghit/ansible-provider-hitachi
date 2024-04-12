@@ -1,0 +1,23 @@
+management_address: 10.11.12.13
+management_port: 443
+server_nickname: 'SampleServerNickName'  # compute node name
+server_os_type: 'Linux'
+port_settings:
+  - {iscsi_name: 'iqn.1994-04.jp.co.hitachi:rsd.r90.i.08757e.1c', target_port_name:  '000-iSCSI-000'}
+chap_settings:
+  - {target_port_name:  '000-iSCSI-000' , target_chap_user_name: 'SampleUserName', target_chap_secret: 'SampleSecret'}
+#  - {target_port_name: 'xxxxxxxxxx', target_chap_user_name: 'xxxxxxxxxx', target_chap_secret: 'xxxxxxxxxx', initiator_chap_user_name: 'xxxxxxxxxx', initiator_chap_secret: 'xxxxxxxxxx'}
+volumes_capacity_mb: 0
+volume_number: 0
+volume_basename: 'SampleVolumeBaseName'
+pool_name: 'SamplePoolName'
+volume_success_file: 'xxx'
+# For expand_volume.yml and add_computenode.yml
+volumes:
+- {name: 'SampleVolumeName', capacity_mb: 0}
+# For delete_volume.yml
+volume_name: 'SaSampleVolumeName'
+# Following variables should be encrypted, but are written in plain text for debugging efficiency
+storage_user: "username"
+storage_pass: "Password"
+

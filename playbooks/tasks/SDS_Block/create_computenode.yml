@@ -1,0 +1,20 @@
+- name: Create a compute node.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Create a Compute Node
+    add_computenode:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      server_nickname: '{{server_nickname}}' # Compute Node Name
+      os_type: '{{server_os_type}}'
+    register: result_add_computenode
+
+  - name: Print add compute node result
+    debug:
+      msg: '{{result_add_computenode}}'
+

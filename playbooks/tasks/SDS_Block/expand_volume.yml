@@ -1,0 +1,21 @@
+- name: Expand the volume size from Hitachi Virtual Storage Software Block.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Expand volume size
+    expand_volume:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      volume_name: '{{item.name}}'
+      capacity_mb: '{{item.capacity_mb}}'
+    with_items:
+      '{{volumes}}'
+    register: result_expand_volumes
+
+  - name: Print expand result
+    debug:
+      msg: '{{result_expand_volumes}}'

@@ -1,0 +1,23 @@
+- name:  Add IQN Initiator to iSCSI target.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Add iSCSI name to iSCSI target
+    hitachi_block_addHost:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      port_id: '{{item.port_id}}'
+      host_group_number: '{{item.host_group_number}}'   # iSCSI Target ID
+      iscsi_name: '{{item.iscsi_name}}'                 # iSCSI initiator IQN
+    with_items:
+      - '{{port_settings}}'
+    register: iscsi_result
+
+  - name: Print add iSCSI name result
+    debug:
+      msg: '{{iscsi_result}}'
+      

@@ -1,0 +1,22 @@
+- name: Create ShadowImage pair
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+ 
+  - name: Create ShadowImage pair
+    hitachi_block_createSI:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      copy_group_name: '{{SI.copy_group_name}}'
+      pvol_ldev_id: '{{SI.pvol_id}}'
+      svol_ldev_id: '{{SI.svol_id}}'
+      consistency_group_id: '{{SI.consistency_group_id}}'
+    register: SI_pair_result
+
+  - name: Print create SI pair result
+    debug:
+      msg: '{{SI_pair_result.outputs}}'

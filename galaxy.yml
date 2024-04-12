@@ -1,0 +1,19 @@
+namespace: hitachi-vantara
+name: storage-direct
+version: 1.0.0
+readme: README.md
+authors:
+  - Hitachi Vantara Ansible Team 
+description: Collection of modules to manage Hitachi Block storages
+license:
+  - GPL-3.0-or-later
+tags:
+  - hitachi
+  - hitachi-vantara
+  - vsp 
+  - sdsblock
+  - storage
+dependencies: {}
+repository: https://github.com/hitachi-vantara/ansible-collections/storage-direct
+documentation: https://github.com/hitachi-vantara/ansible-collections/storage-direct
+issues: https://github.com/hitachi-vantara/ansible-collections/storage-direct/issues

@@ -1,0 +1,19 @@
+- name: Resync ShadowImage pair.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Resync ShadowImage Pair
+    hitachi_block_resyncSI:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      copy_group_name: '{{SI.copy_group_name}}'
+      copy_pair_name: '{{SI.copy_pair_name}}'
+    register: SI_resync_result
+
+  - name: Print resync ShadowImage pair result
+    debug:
+      msg: '{{SI_resync_result.outputs}}'

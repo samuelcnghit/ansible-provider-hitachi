@@ -1,0 +1,89 @@
+ancestor: null
+releases:
+  1.0.0:
+    modules:
+    - description: Adds a CHAP user on an iSCSI port on a Hitachi VSP storage system
+      name: hitachi_block_addChap
+      namespace: ''
+    - description: Adds the iSCSI name of the host on the initiator side for the iSCSI target of the specified port.
+      name: hitachi_block_addHost
+      namespace: ''
+    - description: Adds LUNs to an iSCSI target.
+      name: hitachi_block_addlun
+      namespace: ''  
+    - description: Changes the nickname of an iSCSI name.
+      name: hitachi_block_changeNickName
+      namespace: ''
+    - description: Creates an iSCSI target on a Hitachi VSP storage system.
+      name: hitachi_block_createhg
+      namespace: ''  
+    - description: Creates a ShadowImage pair.
+      name: hitachi_block_createSI
+      namespace: ''  
+    - description: Creates a Thin Image pair with an autosplit option.
+      name: hitachi_block_createTI_with_gen
+      namespace: ''
+    - description: Creates a Thin Image pair.
+      name: hitachi_block_createTI
+      namespace: ''
+    - description: Creates a volume on a Hitachi block storage system.
+      name: hitachi_block_createVol
+      namespace: ''
+    - description: Deletes an iSCSI name from an iSCSI target on a Hitachi block storage system.
+      name: hitachi_block_deleteHost
+      namespace: ''
+    - description: Deletes a volume from a Hitachi block storage system.
+      name: hitachi_block_deleteVol
+      namespace: ''
+    - description: Restores a Thin Image pair.
+      name: hitachi_block_restoreTI
+      namespace: ''
+    - description: Resyncs a ShadowImage pair.
+      name: hitachi_block_resyncSI
+      namespace: ''
+    - description: Resyncs the oldest Thin Image pair.
+      name: hitachi_block_resyncTI_oldest
+      namespace: ''
+    - description: Resyncs a Thin Image pair.
+      name: hitachi_block_resyncTI
+      namespace: ''
+    - description: Splits a ShadowImage pair.
+      name: hitachi_block_splitSI
+      namespace: ''
+    - description: Splits a Thin Image pair.
+      name: hitachi_block_splitTI
+      namespace: ''   
+    - description: Adds a CHAP user to a compute port on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: add_chapuser_computeport
+      namespace: '' 
+    - description: Adds a compute node.
+      name: add_computenode
+      namespace: ''
+    - description: Adds an iSCSI name to a compute node on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: add_hbas
+      namespace: ''
+    - description: Adds paths to a compute node on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: add_paths
+      namespace: ''
+    - description: Attaches a volume to a compute node on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: attach_volume
+      namespace: ''
+    - description: Creates a CHAP user on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: create_chapuser
+      namespace: ''
+    - description: Creates a volume on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: create_volume
+      namespace: ''
+    - description: Deletes a compute node from a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: delete_computenode
+      namespace: ''
+    - description: Deletes a compute node and all volumes attached to that compute node from a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: delete_tenant
+      namespace: ''
+    - description: Deletes a volume from a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: delete_volume
+      namespace: ''
+    - description: Expands a volume on a Hitachi Virtual Storage Platform One SDS Block storage system.
+      name: expand_volume
+      namespace: ''                                                                                                                                                           
+    release_date: '2024-04-15'

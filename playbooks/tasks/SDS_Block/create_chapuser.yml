@@ -1,0 +1,25 @@
+- name: Create a CHAP user for Hitachi Virtual Storage Software Block.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Create a CHAP user
+    create_chapuser:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      target_chap_user_name: '{{item.target_chap_user_name}}'
+      target_chap_secret: '{{item.target_chap_secret}}'
+      initiator_chap_user_name: '{{item.initiator_chap_user_name | default(omit)}}'
+      initiator_chap_secret: '{{item.initiator_chap_secret | default(omit)}}'
+    with_items: 
+      '{{chap_settings}}'
+    register: result_create_chap_user
+
+  - name: Print create chap user result
+    debug:
+      msg: '{{result_create_chap_user}}'
+
+

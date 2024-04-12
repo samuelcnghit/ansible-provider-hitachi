@@ -1,0 +1,21 @@
+- name: Create a volume in the Hitachi Block Storage.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Create a volume
+    hitachi_block_createVol:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      pool_id: '{{pool_id}}'
+      capacity_mb: '{{block_capacity_mb}}'
+      ldev_id: '{{ldev_id}}'
+    register: ldev_result
+
+  - name: Print create LDEV result
+    debug:
+      msg: '{{ldev_result}}'
+

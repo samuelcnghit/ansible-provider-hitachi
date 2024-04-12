@@ -1,0 +1,20 @@
+- name: Restore the specified snapshot data
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Restore ThinImage Pair
+    hitachi_block_restoreTI:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      snapshot_group_name: '{{TI.snapshot_group_name}}'
+      pvol_ldev_id: '{{TI.ldev_id}}'
+      mu_number: '{{TI.mu_number}}'
+    register: TI_restore_result
+
+  - name: Print restore ThinImage Pair result
+    debug:
+      msg: '{{TI_restore_result.outputs}}'

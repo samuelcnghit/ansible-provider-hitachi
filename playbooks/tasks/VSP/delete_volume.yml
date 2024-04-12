@@ -1,0 +1,19 @@
+- name: Delete a volume from Hitachi Block Storage.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Delete a volume
+    hitachi_block_deleteVol:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      ldev_id: '{{ldev_id}}'
+      delete_ldev: true
+    register: ldev_result
+
+  - name: Print delete LDEV result
+    debug:
+      msg: '{{ldev_result}}'

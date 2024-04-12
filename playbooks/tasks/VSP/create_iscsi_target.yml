@@ -1,0 +1,24 @@
+- name: Create iSCSI target on Hitachi Block Storage.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vsp.yml
+  tasks:
+  - name: Create iSCSI target
+    hitachi_block_createhg:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      port_id: '{{item.port_id}}'
+      host_group_name: '{{item.host_group_name}}'     # iSCSI Target Name
+      host_group_number: '{{item.host_group_number}}' # iSCSI Target ID
+      iscsi_name: '{{item.iscsi_name}}'               # iSCSI initiator IQN
+      host_mode: '{{item.host_mode}}'              
+    with_items:
+      '{{port_settings}}'
+    register: hg_result
+
+  - name: Print host group or iSCSI target result
+    debug:
+      msg: '{{hg_result}}'

@@ -1,0 +1,18 @@
+- name: Delete Compute Node and all Volumes attached to that Compute nodes from Hitachi Virtual Storage Software Block.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Delete Tenant
+    delete_tenant:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      server_nickname: '{{server_nickname}}'       # Compute Node Name
+    register: result_delete_tenant
+
+  - name: Print delete tenant result
+    debug:
+      msg: '{{result_delete_tenant}}'

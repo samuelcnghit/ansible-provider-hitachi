@@ -1,0 +1,18 @@
+- name: Delete a Volume from Hitachi Virtual Storage Software Block.
+  hosts: localhost
+  connection: local
+  vars_files:
+    ../../vars/param_vssb.yml
+  tasks:
+  - name: Delete Volume
+    delete_volume:
+      management_address: '{{management_address}}'
+      management_port: '{{management_port}}'
+      user: '{{storage_user}}'
+      password: '{{storage_pass}}'
+      volume_name: '{{volume_name}}'
+    register: result_delete_volume
+
+  - name: Print delete compute node result
+    debug:
+      msg: '{{result_delete_volume}}'
