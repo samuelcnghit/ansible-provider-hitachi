@@ -1,6 +1,7 @@
 # Red Hat® Ansible® Provider for Hitachi Storage
 
-The Hitachi Vantara BlockStorages collection consists of the latest versions of the BlockStorages modules
+The Red Hat® Ansible® Provider for Hitachi Storage consists of the latest versions of the ansible modules for managing Hitachi VSP storage systems 
+and Hitachi Virtual Storage Platform One SDS Block storage systems
 
 ## Supported Platforms
 
