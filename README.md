@@ -1,4 +1,4 @@
-# Hitachi Vantara BlockStorages Collection
+# Red Hat® Ansible® Provider for Hitachi Storage
 
 The Hitachi Vantara BlockStorages collection consists of the latest versions of the BlockStorages modules
 
