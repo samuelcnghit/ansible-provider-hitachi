@@ -81,14 +81,14 @@ and Hitachi Virtual Storage Platform One SDS Block storage systems
 ## Known issues
 - Unable to create multiple ShadowImage pairs with the same P-VOL. You can create ShadowImage pairs using a different unused PVOL.
 
-## Troubleshotting
+## Troubleshooting
 - Copy the file generate_log_bundle.sh from https://github.com/hitachi-vantara/ansible-collections/storage-direct/scripts to the machine where you are running Red Hat Ansible Provider for Hitachi
 Storage
 - Enable debug mode by running the following command:
   - export ANSIBLE_LOG_LEVEL=”DEBUG”
 - Run your ansible playbook and look at the hitachi-ansible.log file in the /var/log/hitachi/ansible-storage directory for self troubleshooting.
 - For further troubleshooting from Hitachi, run generate_log_bundle.sh,  it will generate a log bundle called Ansible_Log_Bundle_yyyymmdd_ hh_mm_ss.zip under /var/log/hitachi/ansible-storage/log_bundles
-      - Create an issue at https://github.com/hitachi-vantara/ansible-collections/storage-direct/issues and attach the genareted log bundle to the issue.
+      - Create an issue at https://github.com/hitachi-vantara/ansible-collections/storage-direct/issues and attach the generated log bundle to the issue.
       
 ## Author
 
